@@ -2,7 +2,7 @@
     "name": "My Space",
     "dockerComposeFile": "docker-compose.yml",
     "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-    "service": "app",
+    "service": "n8n",
     "remoteUser": "vscode",
     "forwardPorts": [1234, 5678],
     "customizations": {
