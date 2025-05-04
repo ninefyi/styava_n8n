@@ -1,13 +1,24 @@
 # Assumes docker-compose.yaml is at the root /app root
-cd app
+# workspaceFolder is /app, no need to cd
+
 # This setup script depends on running some code in other containers
-dockerd &
-# Ugh yes there's no nice way to wait until dockerd is ready
-sleep 5
+echo "Starting Docker daemon..."
+dockerd > /var/log/dockerd.log 2>&1 &
+
+# Wait for Docker daemon to be ready
+echo "Waiting for Docker daemon..."
+while (! docker info > /dev/null 2>&1); do
+  sleep 1
+done
+echo "Docker daemon is ready."
+
 # Do whatever setup you need
+echo "Running docker-compose up..."
 docker-compose up -d
-docker-compose exec {some command to run migrations etc}
-# If you need to use docker for this setup script you must stop all containers
-# otherwise, any servers running in docker will not have their ports
-# forwarded properly by codespaces.
-docker-compose stop
+
+echo "Running setup commands..."
+# docker-compose exec {some command to run migrations etc} # Add your specific setup command here if needed
+
+echo "Setup script finished."
+# Removed docker-compose stop to keep services running for postStartCommand or immediate use
+# docker-compose stop

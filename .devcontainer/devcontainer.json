@@ -1,19 +1,13 @@
 {
     "name": "My Space",
-    // The dockerfile will be at te root of the project
     "build": {"dockerfile": "../Dockerfile"},
-    // Your code path from the .devcontainer directory
-    "workspaceFolder": "../app",
-    // List of ports that you want to preview
+    "workspaceFolder": "/app", // Use absolute path for clarity
     "forwardPorts": [1234, 5678],
-    // Script to run to bootstrap the app when the space is created
-    "postCreateCommand": ". ../setup.sh",
-    // Automatically start the app in subsequent sessions
-    "postStartCommand": "cd app && docker-compose start",
-    // Privileged flag is needed to run docker-in-docker, the volume
-    // is needed or docker build will fail
-    "runArgs": ["--volume=/var/lib/docker", "--privileged"],
-    "postCreateCommand": ". /app/scripts/codespaces.sh",
+    "postCreateCommand": "bash /app/setup.sh",
+    // Automatically start the app in subsequent sessions (runs in workspaceFolder)
+    "postStartCommand": "docker-compose up -d",
+    // Privileged flag is needed to run docker-in-docker
+    "runArgs": ["--privileged"],
     "customizations": {
         "vscode": {
             "extensions": [
