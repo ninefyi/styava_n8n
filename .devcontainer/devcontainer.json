@@ -1,7 +1,9 @@
 {
     "name": "My Space",
-    "dockerComposeFile": "../app/docker-compose.yml",
-    "workspaceFolder": "/app", // Use absolute path for clarity
+    "dockerComposeFile": "docker-compose.yml",
+    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+    "service": "app",
+    "remoteUser": "vscode",
     "forwardPorts": [1234, 5678],
     "customizations": {
         "vscode": {
