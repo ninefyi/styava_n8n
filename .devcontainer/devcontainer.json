@@ -3,12 +3,15 @@
     "dockerComposeFile": "docker-compose.yml",
     "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
     "service": "n8n",
-    "remoteUser": "vscode",
-    "forwardPorts": [1234, 5678],
+    "forwardPorts": [5678],
     "customizations": {
+        "codespaces": {
+            "openFiles": ["README.md"]
+        },
         "vscode": {
             "extensions": [
-                "ms-azuretools.vscode-docker"
+                "ms-azuretools.vscode-docker",
+                "ms-azuretools.vscode-containers"
             ]
         }
     }

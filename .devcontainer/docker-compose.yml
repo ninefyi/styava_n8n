@@ -10,4 +10,4 @@ services:
       - N8N_RUNNERS_ENABLED=true
       - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false
     volumes:
-      - ./data:/home/node/.n8n # Service uses volume named 'data'
+      - ../data:/home/node/.n8n # Service uses volume named 'data'
