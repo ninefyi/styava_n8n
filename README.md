@@ -23,7 +23,7 @@ Today is {{ $now.format('cccc') }} the {{  $now.format('yyyy-MM-dd HH:mm') }}.
 
 ```javascript
 // Options > After
-{ { $fromAI('after', 'The earliest datetime we want to look for events for') }}
+{{ $fromAI('after', 'The earliest datetime we want to look for events for') }}
 ```
 
 ```javascript
