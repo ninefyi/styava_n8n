@@ -1,13 +1,8 @@
 {
     "name": "My Space",
-    "build": {"dockerfile": "../Dockerfile"},
+    "dockerComposeFile": "../app/docker-compose.yml",
     "workspaceFolder": "/app", // Use absolute path for clarity
     "forwardPorts": [1234, 5678],
-    "postCreateCommand": "bash /app/setup.sh",
-    // Automatically start the app in subsequent sessions (runs in workspaceFolder)
-    "postStartCommand": "docker-compose up -d",
-    // Privileged flag is needed to run docker-in-docker
-    "runArgs": ["--privileged"],
     "customizations": {
         "vscode": {
             "extensions": [
