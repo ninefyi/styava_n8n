@@ -10,12 +10,4 @@ services:
       - N8N_RUNNERS_ENABLED=true
       - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false
     volumes:
-      - data:/home/node/.n8n # Service uses volume named 'data'
-
-volumes:
-  data: # Corrected volume name to match service usage
-    driver: local
-    driver_opts:
-      type: none
-      device: ./data # Path relative to docker-compose.yml -> /app/data
-      o: bind
+      - ./data:/home/node/.n8n # Service uses volume named 'data'
